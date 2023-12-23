@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import axios from 'axios'
 import {useParams, Link} from 'react-router-dom'
 import {Row, Col, Image, Card, Button, ListGroup} from 'react-bootstrap'
 import Rating from '../components/Rating'
@@ -7,6 +8,16 @@ import Rating from '../components/Rating'
 const ProductScreen = () => {
   const params = useParams();
   // const product = products.find(p => p._id === params.id)
+  const [product, setProduct] = useState({})
+  //only want one product*, alos use {} to define singular not array data
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const {data} = await axios.get(`/api/product/${params.id}`)
+      setProduct(data)
+    }
+    fetchProduct()
+  })
 
   return (
     <>
