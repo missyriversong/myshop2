@@ -1,5 +1,5 @@
 import React from 'react'
-import products from '../products'
+
 import Product from '../components/Product'
 import {Col, Row} from 'react-bootstrap'
 

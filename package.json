@@ -1,0 +1,22 @@
+{
+  "name": "myshop2",
+  "version": "1.0.0",
+  "description": "shop app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/missyriversong/myshop2.git"
+  },
+  "author": "melissa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/missyriversong/myshop2/issues"
+  },
+  "homepage": "https://github.com/missyriversong/myshop2#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
