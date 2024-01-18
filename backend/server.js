@@ -13,7 +13,9 @@ dotenv.config()
 connectDB()
 
 app.use('/api/products', productRoutes)
-app.use('/api/product', productRoutes)
+
+// if you don't update productScreen api
+// app.use('/api/product', productRoutes)
 
 
 app.use(errorHandler)

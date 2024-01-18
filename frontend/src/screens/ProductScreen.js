@@ -13,11 +13,15 @@ const ProductScreen = () => {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const {data} = await axios.get(`/api/product/${params.id}`)
+      const {data} = await axios.get(`/api/products/${params.id}`)
       setProduct(data)
     }
     fetchProduct()
   })
+
+  //   prior to route change, "s" plural update to product
+  //const {data} = await axios.get(`/api/product/${params.id}`) 
+  
 
   return (
     <>
