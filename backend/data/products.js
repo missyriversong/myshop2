@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: '1',
     name: 'Astral Plate',
     image: '/image/blueplate.jpg',
     description: 'Blue astral plate',
@@ -12,7 +11,6 @@ const products = [
     numReviews: 10,
   },
   {
-    _id: '2',
     name: 'Lotus plate',
     image: '/image/plate.jpg',
     description: 'Rustic lotus inspired plate',
@@ -24,7 +22,6 @@ const products = [
     numReviews: 8,
   },
   {
-    _id: '3',
     name: 'Stone dusted plate',
     image: '/image/plateset.jpg',
     description: 'Playful speckled stone plate',
