@@ -1,8 +1,8 @@
-import React, {useEffect} from 'react'   //, useState
+import React, {useEffect, useState} from 'react'   //, useState
 // import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
-import {useParams, Link} from 'react-router-dom'
-import {Row, Col, Image, Card, Button, ListGroup} from 'react-bootstrap'
+import {useParams, Link, useNavigate} from 'react-router-dom'
+import {Row, Col, Image, Card, Button, ListGroup, Form} from 'react-bootstrap'
 import Rating from '../components/Rating'
 import { listProductDetails } from '../actions/productActions.js'
 import Loader from '../components/Loader.js'
@@ -10,7 +10,9 @@ import Message from '../components/Message.js'
 
 const ProductScreen = () => {
   const params = useParams();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [qty, setQty] = useState(1);
   // const product = products.find(p => p._id === params.id)
   // const [product, setProduct] = useState({})
   //only want one product*, alos use {} to define singular not array data
@@ -31,6 +33,11 @@ const ProductScreen = () => {
   //   prior to route change, "s" plural update to product
   //const {data} = await axios.get(`/api/product/${params.id}`) 
   
+
+  const addtoCartHandler = () => {
+    navigate(`/cart${params.id}?qty=${qty}`)
+
+  }
   
   return (
     <>
@@ -77,8 +84,29 @@ const ProductScreen = () => {
               </Row>
           </ListGroup.Item>
           <ListGroup.Item>
-            <Button className='btn-block' type='button' disabled={product.countInStock === 0}><strong>Add to Cart</strong></Button>
+            <Button className='btn-block' type='button' onClick={addtoCartHandler} disabled={product.countInStock === 0}><strong>Add to Cart</strong></Button>
           </ListGroup.Item>
+
+          {product.countInStock > 0 && (
+          <ListGroup.Item>
+          <Row> 
+            <Col>Qty: </Col>
+            <Col>
+              <Form.Control as='select' value={qty} onChange={e => setQty(e.target.value) }> 
+                {
+                  [...Array(product.countInStock).keys()].map(x => 
+                      (
+                      <option key={x+1} value={x+1}>
+                      {x+1}
+                      </option>
+                      ))
+                }
+              </Form.Control>
+            </Col>
+          </Row>
+          </ListGroup.Item>
+          )}
+
           </ListGroup>
         </Card>
       </Col>
