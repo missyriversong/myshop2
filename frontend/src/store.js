@@ -9,9 +9,15 @@ const rootReducer = combineReducers({
   cart: cartReducer
 })
 
+const cartItemsFromStorage = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : []
+
+const initialState = {
+  cart: {cartItems: cartItemsFromStorage}
+}
+
 const store = configureStore({
   reducer: rootReducer,
-  preloadedState: {}
+  preloadedState: initialState   //dont make this object, don't load
 })
 
 export default store

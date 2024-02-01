@@ -35,7 +35,7 @@ const ProductScreen = () => {
   
 
   const addtoCartHandler = () => {
-    navigate(`/cart${params.id}?qty=${qty}`)
+    navigate(`/cart/${params.id}?qty=${qty}`)
 
   }
   
