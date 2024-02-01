@@ -1,5 +1,4 @@
 import express from 'express';
-import { getProductById, getProducts } from '../controllers/productController';
 // import asyncHandler from 'express-async-handler'    move to controller
 // import Product from '../models/productModel.js'     move to controller
 import { getProducts, getProductById } from '../controllers/productController.js';

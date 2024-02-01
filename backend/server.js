@@ -7,16 +7,21 @@ import connectDB from './config/db.js';
 // import products from './data/products.js';  moved to db
 import productRoutes from './routes/productRoutes.js'
 import errorHandler from './middleware/errorMiddleware.js';
+import userRoutes from './routes/userRoutes.js'
 
 const app = express()
 dotenv.config()
 connectDB()
+
+app.use(express.json)   //converts data
 
 app.use('/api/products', productRoutes)
 
 // if you don't update productScreen api
 // app.use('/api/product', productRoutes)
 
+
+app.use('/api/users/', userRoutes)
 
 app.use(errorHandler)
 
